@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: signal-engine-bot
+    env: python
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: python run_bot.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+    autoDeploy: true
